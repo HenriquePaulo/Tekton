@@ -1,0 +1,9 @@
+a {
+    cursor:pointer;
+-webkit-transition: all 0.4s;
+-moz-transition: all 0.4s;
+-o-transition: all 0.4s;
+-ms-transition: all 0.4s;
+}
+#menuesquerda h3{text-align: center; text-decoration: none; font: "Arial", "Helvetica", sans-serif;font-size: 12px;}
+#menuesquerda:hover{text-decoration: cyan;}
