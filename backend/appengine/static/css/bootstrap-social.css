@@ -15,17 +15,15 @@ a {cursor:pointer;
 }
 #menuesquerda ul li{list-style: none; padding: 2px 0px;color:#666}
 #menuesquerda ul li h3{text-align: left; text-decoration:none;color:#ffffff;font-size: 15px;background-color: #d64700}
-#menuesquerda ul li a:hover{color:#007bb6; text-decoration: none}
-
-
+#menuesquerda ul li:hover{color:#007bb6}
 
 #destaque{text-align: center;color: #007bb6;margin: 5px 0px;border-bottom: 3px solid #007bb6}
 
 #labellogin{margin: 10px auto auto auto;}
 
-#logar li{margin: 5px 20px 0px 0px; }
-#logar li a{ color:#FFFFFF;background-color: #d58512;border: none}
-#logar li a:hover{ background: #419641;border: none; }
+#logar{margin: 1px 10px 0px 0px}
+#logar li a{ color:#FFFFFF;background-color: #d58512;border: none;}
+#logar li a:hover{ background: #419641;border: none}
 
 
 #colunasmeio{width: 165px; height: 450px}
@@ -33,17 +31,16 @@ a {cursor:pointer;
 
 #textpesquisa{margin: 0px 0px 0px 0px}
 
-#barradepesquisa form{margin: 0px 0px 0px 100px}
-
 #botaomenu{margin:0px 0px 0px 0px;padding: 7px 13px;color:#FFFFFF;background-color: #d58512;border-color:#d58512}
-#botaomenu:hover{background-color: #419641;border-color: #419641}
+#botaomenu a:hover{background-color: #419641;border-color: #419641}
 
-#botoesmenu ul li:hover{color:#FFFFFF;background-color: #d58512;border-color:#d58512}
-#btnlogo a:hover{color:#FFFFFF;background-color: #d58512;border-color:#d58512}
+#bs-example-navbar-collapse-1 ul li:hover{color:#FFFFFF;background-color: #d58512;border-color:#d58512}
+
+.form-control{width: 190px;height:auto;float: right;margin: 10px auto auto auto}
 
 #meio{background-color: #FFFFFF}
 
-.form-control{width: 190px;height:auto;float: right;margin: 10px auto auto auto}
+.dropdown ul li a:hover{background-color: #419641;border-color: #419641}
 
 .thumbnail h3{color:#007bb6;font-family: "Swis721";font-size: 15px}
 .thumbnail h4{width: 143px;font-family: "Swis721_B";font-size: 25px;color: #2C6EB4;margin: 0px;text-align: left;}
@@ -57,22 +54,8 @@ a {cursor:pointer;
 
 .preco{width: 143px;font-family: "Swis721_B";font-size: 26px;color: #2C6EB4;margin: 0px;text-align: left;}
 
+
 .carousel-caption{color: #000000}
-
-
-#tabelacelular tr:hover{border: solid 2px #ff5500}
-
-#tabelacelular p{color: #A2A2A2;font-family: "Swis721";font-size: 11px}
-#tabelacelular h5{color: #05529C;font-family: "Swis721";font-size: 16px;text-align: right; margin-top: 25%}
-#tabelacelular p img{margin-top: 20px}
-#tabelacelular img a{margin-top: 50px}
-
-.descricao{ height: 10px}
-
-
-
-
-
 
 
 .btn-social{position:relative;padding-left:44px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.btn-social :first-child{position:absolute;left:0;top:0;bottom:0;width:32px;line-height:34px;font-size:1.6em;text-align:center;border-right:1px solid rgba(0,0,0,0.2)}
