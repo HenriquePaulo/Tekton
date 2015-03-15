@@ -59,13 +59,11 @@ a {cursor:pointer;
 
 .carousel-caption{color: #000000}
 
-
-#tabelacelular tr:hover{border: solid 2px #ff5500}
-
 #tabelacelular p{color: #A2A2A2;font-family: "Swis721";font-size: 11px}
 #tabelacelular h5{color: #05529C;font-family: "Swis721";font-size: 16px;text-align: right; margin-top: 25%}
 #tabelacelular p img{margin-top: 20px}
 #tabelacelular img a{margin-top: 50px}
+#tabelacelular tr:hover{border: solid 3px #ff5500}
 
 .descricao{ height: 10px}
 
