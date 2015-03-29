@@ -79,19 +79,6 @@
                         <a href='/categorias/categorias?categorias={{i}}'>{{ i }}</a>
                     </li>
                 {% endfor %}
-					<!--<a href="celulares">Celulares</a>-->
-
-				<!--<li>
-					<a href="smarthphones">Smarthphones</a>
-				</li>
-				<li>
-					<a href="smarthphones_acessorios"> Smarthphones - Acessórios</a>
-				</li>
-				<li>
-					<a href="telefone"> Telefones</a>
-				</li>-->
-
-
 
                 <li>
                     <h3>Eletrônicos</h3>
@@ -101,54 +88,25 @@
                         <a href='/categorias/categorias?categorias={{i}}'>{{ i }}</a>
                     </li>
                 {% endfor %}
-				<li>
-                    <a href="player_de_midia_hd">Player de Mídia HD</a>
-				</li>
-				<li>
-					<a href="walk_talk">Walk-Talk</a>
-				</li>
-
 
                 <li>
                     <h3>Computadores</h3>
                 </li>
-				<li>
-					<a href="computadores">Computadores</a>
-				</li>
-				<li>
-					<a href="computadores_gamers"> Computadores Gamers</a>
-				</li>
-                <li>
-                    <a href="impressoras"> Impressoras</a>
-                </li>
-                <li>
-                    <a href="monitor"> Monitores</a>
-                </li>
-                <li>
-                    <a href="notebooks"> Notebooks</a>
-                </li>
-                <li>
-                    <a href="servidores"> Servidores</a>
-                </li>
-                <li>
-                    <a href="tablets"> Tablets</a>
-                </li>
+                {% for i in ('computadores computadores_gamers impressoras monitor notebooks servidores tablets').split(' ')%}
+                    <li>
+                        <a href='/categoria/categoria?categoria={{i}}'>{{ i }}</a>
+                    </li>
+                {% endfor %}
 
                 <li>
                     <h3>Hardware</h3>
                 </li>
-                <li>
-                   <a href="cooler"> Coolers</a>
-                </li>
-                <li>
-                    <a href="hd"> Disco Rígido(HD)</a>
-                </li>
-                <li>
-                    <a href="ram"> Memória RAM</a>
-                </li>
-                <li>
-                    <a href="vga"> Placa de vídeo(VGA)</a>
-                </li>
+                {% for i in ('cooler hd ram monitor vga').split(' ')%}
+                    <li>
+                        <a href='/categorias/categorias?categorias={{i}}'>{{ i }}</a>
+                    </li>
+                {% endfor %}
+
 			</ul>
 		</div>
 
