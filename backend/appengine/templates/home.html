@@ -76,7 +76,7 @@
 
                 {% for i in ('celulares smarthphones smarthphones_acessorios telefone').split(' ')%}
                     <li>
-                        <a href='/categorias/categorias?categorias={{i}}'>{{ i }}</a>
+                        <a href='categorias?categorias={{ i }}'>{{ i }}</a>
                     </li>
                 {% endfor %}
 
@@ -85,7 +85,7 @@
                 </li>
                 {% for i in ('player_de_midia_hd walk_talkz').split(' ')%}
                     <li>
-                        <a href='/categorias/categorias?categorias={{i}}'>{{ i }}</a>
+                        <a href='categorias?categorias={{i}}'>{{ i }}</a>
                     </li>
                 {% endfor %}
 
@@ -94,7 +94,7 @@
                 </li>
                 {% for i in ('computadores computadores_gamers impressoras monitor notebooks servidores tablets').split(' ')%}
                     <li>
-                        <a href='/categoria/categoria?categoria={{i}}'>{{ i }}</a>
+                        <a href='categorias?categorias={{i}}'>{{ i }}</a>
                     </li>
                 {% endfor %}
 
@@ -103,7 +103,7 @@
                 </li>
                 {% for i in ('cooler hd ram monitor vga').split(' ')%}
                     <li>
-                        <a href='/categorias/categorias?categorias={{i}}'>{{ i }}</a>
+                        <a href='/{{i}}'>{{ i }}</a>
                     </li>
                 {% endfor %}
 
@@ -233,36 +233,11 @@
 
 		<div class="col-md-3 column">
 
-			<form class="form-horizontal" role="form">
-				<div class="form-group">
-					 <label for="inputEmail3" class="col-sm-2 control-label" id="labellogin">Email</label>
-					<div class="col-sm-10">
-						<input class="form-control" id="inputEmail3" type="email">
-					</div>
-				</div>
-				<div class="form-group">
-					 <label for="inputPassword3" class="col-sm-2 control-label" id="labellogin">Password</label>
-					<div class="col-sm-10">
-						<input class="form-control" id="inputPassword3" type="password">
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						<div class="checkbox">
-							 <label><input type="checkbox"> Lembrar Minha Senha</label>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						 <button type="submit" class="btn btn-default">Entrar</button>
-					</div>
-				</div>
-			<a href="http://www.kabum.com.br/download/cdc/CODIGO_DE_DEFESA_DO_CONSUMIDOR.zip" target="_self">
+			<!--HUEHUEHUE--><br><br><br><br>
+            <a href="http://www.kabum.com.br/download/cdc/CODIGO_DE_DEFESA_DO_CONSUMIDOR.zip" target="_self">
                 <img src="../static/img/codigo_de_defesa_img.png" align="right" width="154">
             </a>
-		<
-            /div>
+		</div>
         {% endblock %}
 
         </div>
