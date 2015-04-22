@@ -10,6 +10,7 @@ from routes.permission import home as permission_home, admin
 
 
 @permissions(ADMIN)
+#@login_not_required
 @no_csrf
 def index():
     return TemplateResponse({'security_table_path': router.to_path(permission_home.index),
