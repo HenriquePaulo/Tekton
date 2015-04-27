@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
-#from google.appengine.ext import ndb
-from google.appengine.ext import nbd
+from google.appengine.ext import ndb
 from gaecookie.decorator import no_csrf
+from gaeforms import base
+from gaeforms.base import Form
 from gaeforms.ndb.form import ModelForm
 from gaegraph.model import Node
 from gaepermission.decorator import login_not_required
@@ -23,31 +24,34 @@ def form():
     return TemplateResponse(contexto)
 
 
-class Login(Node):
-    name = ndb.StringProperty(required=True)#required = true significa que é obrigatório
-    email = ndb.StringProperty(required=True)
-    password = ndb.StringProperty(required=True)
+class Produtos(Node):
+    titulo = ndb.StringProperty(required=True)#required = true significa que é obrigatório
+    descricao = ndb.StringProperty(required=True)
+    imagem = ndb.StringProperty(required=True)
+    preco = ndb.StringProperty(required=True)
 
-class LoginForm(ModelForm):
-    _model_class = Login
+class ProdutosForm(ModelForm):
+    _model_class = Produtos
+
 @login_not_required
 @no_csrf
 def salvar(_resp, **propriedades):
-    login_form = LoginForm(**propriedades)
-    erros = login_form.validate()
+    produtos_form = ProdutosForm(**propriedades)
+    erros = produtos_form.validate()
     if erros:
        contexto = {'salvar_path': router.to_path(salvar),
                    'erros': erros,
-                   'login' : login_form}
-       return TemplateResponse(contexto,'/cadastro/home.html')
+                   'login' : produtos_form}
+       return TemplateResponse(contexto,'/produtos/home.html')
 
     else:
         pass
-        login=LoginForm.fill_model()
+        produtos=ProdutosForm.fill_model()
 
-        login.put()
+        produtos.put()
         #_resp.write(propriedades)
 
         #feito para mostrar o que esta sendo salvo no banco
+
 
 
