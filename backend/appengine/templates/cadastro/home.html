@@ -10,9 +10,9 @@
 
                     <form action="{{ salvar_path }}" method="post" role="form">
                         {{ csrf_input() }}
-                        {{ form_input('Nome','name',login.name ,erros.name) }}
-                        {{ form_input('Email','email',login.email ,erros.email) }}
-                        {{ form_input('Senha','password',login.password ,erros.password) }}
+                        {{ form_input('Nome','name', form.name ,erros.name) }}
+                        {{ form_input('Email','email', form.email ,erros.email) }}
+                        {{ form_input('Senha','password', form.password ,erros.password) }}
 
                         <button type="submit" class="btn btn-success">Salvar</button>
                     </form>

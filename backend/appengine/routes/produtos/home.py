@@ -11,19 +11,6 @@ from config.template_middleware import TemplateResponse
 from tekton import router
 
 
-@login_not_required
-@no_csrf
-def index():
-    return form()
-
-
-@login_not_required
-@no_csrf
-def form():
-    contexto = {'salvar_path': router.to_path(salvar)}
-    return TemplateResponse(contexto)
-
-
 class Produtos(Node):
     titulo = ndb.StringProperty(required=True)#required = true significa que é obrigatório
     descricao = ndb.StringProperty(required=True)
@@ -32,24 +19,24 @@ class Produtos(Node):
 
 class ProdutosForm(ModelForm):
     _model_class = Produtos
+    _include = [Produtos.titulo, Produtos.descricao, Produtos.imagem,Produtos.preco]
 
 @login_not_required
 @no_csrf
-def salvar(_resp, **propriedades):
+def index(_resp, **propriedades):
     produtos_form = ProdutosForm(**propriedades)
     erros = produtos_form.validate()
     if erros:
-       contexto = {'salvar_path': router.to_path(salvar),
+       contexto = {'salvar_path': router.to_path(index),
                    'erros': erros,
-                   'login' : produtos_form}
+                   'produtos' : produtos_form}
        return TemplateResponse(contexto,'/produtos/home.html')
 
     else:
-        pass
-        produtos=ProdutosForm.fill_model()
+        produtos=produtos_form.fill_model()
 
         produtos.put()
-        #_resp.write(propriedades)
+        _resp.write(propriedades)
 
         #feito para mostrar o que esta sendo salvo no banco
 

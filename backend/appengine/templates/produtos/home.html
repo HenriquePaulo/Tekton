@@ -6,11 +6,11 @@
                 <br/>
 
                 <div class="well">
-                    <h1 class="text-center">Cadastre-se</h1>
+                    <h1 class="text-center">Cadastre um Produto</h1>
 
-                    <form action="{{ salvar_path }}" method="post" role="form">
+                    <form action="{{ Produto_path }}" method="post" role="form">
                         {{ csrf_input() }}
-                        {{ form_input('titulo','titulo',produtos.titulo ,erros.name) }}
+                        {{ form_input('titulo','titulo',produtos.titulo ,erros.titulo) }}
                         {{ form_input('descricao','descricao',produtos.descricao ,erros.descricao) }}
                         {{ form_input('imagem','imagem',produtos.imagem ,erros.imagem) }}
                         {{ form_input('preco','preco',produtos.preco ,erros.preco) }}
