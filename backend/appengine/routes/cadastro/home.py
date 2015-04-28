@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 #from google.appengine.ext import ndb
-from google.appengine.ext import nbd
+from google.appengine.ext import ndb
 from gaecookie.decorator import no_csrf
 from gaeforms.ndb.form import ModelForm
 from gaegraph.model import Node
