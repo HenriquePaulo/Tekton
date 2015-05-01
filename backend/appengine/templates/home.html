@@ -82,7 +82,7 @@
                 <li>
                     <h3>Eletrônicos</h3>
                 </li>
-                {% for i in ('player_de_midia_hd walk_talkz').split(' ')%}
+                {% for i in ('player_de_midia_hd walk_talk').split(' ')%}
                     <li>
                         <a href='categorias?categorias={{i}}'>{{ i }}</a>
                     </li>
@@ -102,7 +102,7 @@
                 </li>
                 {% for i in ('cooler hd ram monitor vga').split(' ')%}
                     <li>
-                        <a href='/{{i}}'>{{ i }}</a>
+                        <a href='categorias?categorias={{i}}'>{{ i }}</a>
                     </li>
                 {% endfor %}
 

@@ -10,10 +10,11 @@
 
                     <form action="{{ Produto_path }}" method="post" role="form">
                         {{ csrf_input() }}
+                        {{ form_input('categoria','nome',produtos.nome ,erros.nome) }}
                         {{ form_input('titulo','titulo',produtos.titulo ,erros.titulo) }}
                         {{ form_input('descricao','descricao',produtos.descricao ,erros.descricao) }}
-                        {{ form_input('imagem','imagem',produtos.imagem ,erros.imagem) }}
-                        {{ form_input('preco','preco',produtos.preco ,erros.preco) }}
+                        {{ form_input('url da imagem','imagem',produtos.imagem ,erros.imagem) }}
+                        {{ form_input('Valor (usar prefixo R$)','preco',produtos.preco ,erros.preco) }}
 
                         <button type="submit" class="btn btn-success">Salvar</button>
                     </form>

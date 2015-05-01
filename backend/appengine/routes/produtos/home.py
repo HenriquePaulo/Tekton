@@ -9,9 +9,10 @@ from gaegraph.model import Node
 from gaepermission.decorator import login_not_required
 from config.template_middleware import TemplateResponse
 from tekton import router
-
+from tekton.gae.middleware.redirect import RedirectResponse
 
 class Produtos(Node):
+    nome = ndb.StringProperty(required=True)
     titulo = ndb.StringProperty(required=True)#required = true significa que é obrigatório
     descricao = ndb.StringProperty(required=True)
     imagem = ndb.StringProperty(required=True)
@@ -19,11 +20,11 @@ class Produtos(Node):
 
 class ProdutosForm(ModelForm):
     _model_class = Produtos
-    _include = [Produtos.titulo, Produtos.descricao, Produtos.imagem,Produtos.preco]
+    _include = [Produtos.nome, Produtos.titulo, Produtos.descricao, Produtos.imagem,Produtos.preco]
 
 @login_not_required
 @no_csrf
-def index(_resp, **propriedades):
+def index(**propriedades):
     produtos_form = ProdutosForm(**propriedades)
     erros = produtos_form.validate()
     if erros:
@@ -36,8 +37,9 @@ def index(_resp, **propriedades):
         produtos=produtos_form.fill_model()
 
         produtos.put()
-        _resp.write(propriedades)
 
+
+        return RedirectResponse(router.to_path('/produtos'))
         #feito para mostrar o que esta sendo salvo no banco
 
 

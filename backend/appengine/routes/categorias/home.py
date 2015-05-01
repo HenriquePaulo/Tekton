@@ -5,9 +5,16 @@ from config.template_middleware import TemplateResponse
 from gaecookie.decorator import no_csrf
 from gaepermission.decorator import login_not_required
 from google.appengine.api import users
+from routes.produtos.home import *
+
 
 @login_not_required
 @no_csrf
 def index(categorias):
-    cat = {'categorias':categorias}
-    return TemplateResponse(cat)
+
+
+    query = Produtos.query(Produtos.nome == categorias)#constroi a query para enviar pro banco
+
+    biblioteca = {'categorias': categorias , 'produto_lista':query.fetch()}
+
+    return TemplateResponse(biblioteca)
