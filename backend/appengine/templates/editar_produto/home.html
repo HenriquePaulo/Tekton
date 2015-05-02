@@ -1,0 +1,76 @@
+{% extends 'base/base.html' %}
+{% block body %}
+    <style>
+        h1{margin: auto auto auto 200px}
+        th {border: solid 1px; text-align: center; padding: 5px}
+        td {border: solid 1px; text-align: center; padding: 5px}
+        tr {border: solid 1px; text-align: center; padding: 5px}
+        table {border: solid 1px; text-align: center; padding: 5px}
+        thead {border: solid 1px; text-align: center; padding: 5px}
+        thead {border: solid 1px; text-align: center; padding: 5px}
+    </style>
+    <div class="container" style="background: #FFFFFF">
+        <div class="row">
+            <div class="col-md-7 col-md-offset-1">
+                <br/>
+
+                <div class="well">
+                    <h1 class="text-center">Tabela de Produtos</h1>
+
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>categoria</th>
+                            <th>titulo</th>
+                            <th>decrição</th>
+                            <th>preço</th>
+                            <th>url da imagem</th>
+                        </tr>
+                        </thead>
+                        {% for produto in produto_lista %}
+                            <tr>
+                            <td>{{ produto.id }}</td>
+                            <td>{{ produto.nome }}</td>
+                            <td>{{ produto.titulo }}</td>
+                            <td>{{ produto.descricao }}</td>
+                            <td>{{ produto.preco }}</td>
+                            <td>{{ produto.imagem }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
