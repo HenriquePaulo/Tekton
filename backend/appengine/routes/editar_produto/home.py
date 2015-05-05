@@ -15,9 +15,18 @@ def index():
     produto_lista = [form.fill_with_model(produto) for produto in produto_lista]
     contexto = {'produto_lista':produto_lista}
     editar_form_path = router.to_path(editar_form)
+    delete_form_path = router.to_path(delete)
     for produto in produto_lista:
         produto['edit_path'] ='%s/%s'%(editar_form_path,  produto['id'])
+        produto['delete_path'] ='%s/%s'%(delete_form_path,  produto['id'])
     return TemplateResponse(contexto)
+
+@login_not_required
+@no_csrf
+def delete(produtos_id):
+    chave = ndb.Key(Produtos, int(produtos_id))
+    chave.delete()
+    return RedirectResponse(router.to_path(index))
 
 @login_not_required
 @no_csrf
@@ -45,5 +54,5 @@ def editar(produtos_id, **propriedades):
     else:
         produtos_form.fill_model(produtos)
         produtos.put()
-        return RedirectResponse(router.to_path('/produtos/home.html'))
+        return RedirectResponse(router.to_path(index))
 
