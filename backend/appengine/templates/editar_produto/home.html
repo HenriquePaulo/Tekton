@@ -20,6 +20,7 @@
                     <table>
                         <thead>
                         <tr>
+                            <th> </th>
                             <th>id</th>
                             <th>categoria</th>
                             <th>titulo</th>
@@ -30,6 +31,7 @@
                         </thead>
                         {% for produto in produto_lista %}
                             <tr>
+                            <td><a href="{{ produto.edit_path }}" class="btn btn-primary "><i class="glyphicon glyphicon-pencil"></i></a></td>
                             <td>{{ produto.id }}</td>
                             <td>{{ produto.nome }}</td>
                             <td>{{ produto.titulo }}</td>
