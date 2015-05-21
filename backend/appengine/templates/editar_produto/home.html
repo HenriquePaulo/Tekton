@@ -1,4 +1,15 @@
 {% extends 'base/base.html' %}
+{% block js %}
+    <script type="text/javascript" src="/static/angular/js/angular.min.js"></script>
+    <script type="text/javascript" src="/static/produto/js/produto.js"></script>
+    <script type="text/javascript">
+        var produtoApp = angular.module('produtoApp',['produtoModulo']);
+        function ProdutoController($scope){
+
+            $scope.produto = {nome:'Computador'};
+        }
+    </script>
+{% endblock %}
 {% block body %}
     <style>
         h1{margin: auto auto auto 200px}
@@ -11,11 +22,12 @@
     </style>
     <div class="container" style="background: #FFFFFF">
         <div class="row">
-            <div class="col-md-7 col-md-offset-1">
+            <div class="col-md-7 col-md-offset-1" ng-app="produtoApp" ng-controller="ProdutoController">
                 <br/>
 
                 <div class="well">
                     <h1 class="text-center">Tabela de Produtos</h1>
+                    <produtoform></produtoform>
 
                     <table>
                         <thead>
