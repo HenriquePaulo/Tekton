@@ -1,6 +1,6 @@
 <tr>
-    <td><a href="{{ editar_produto.edit_path }}" class="btn btn-success btn-sm"><i
-    class="glyphicon glyphicon-pencil"></i></a></td>
+    <td><button class="btn btn-success btn-sm"><i
+    class="glyphicon glyphicon-pencil"></i></button></td>
     <td>{{ editar_produto.id }}</td>
     <td>{{ editar_produto.creation }}</td>
     <td>{{ editar_produto.titulo }}</td>
@@ -9,9 +9,8 @@
     <td>{{ editar_produto.imagem }}</td>
     <td>{{ editar_produto.nome }}</td>
     <td>
-        <form action="{{ editar_produto.delete_path }}" method="post" onsubmit="return confirm('{{_('Are you sure to delete? Press cancel to avoid deletion.')}}');">
-            {{ csrf_input() }}
+
             <button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
-        </form>
+
     </td>
 </tr>

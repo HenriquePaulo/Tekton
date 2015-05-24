@@ -6,7 +6,8 @@ produtoModulo.directive('produtoform', function(){
       replace:true,
       templateUrl:'/static/produto/js/produto_form.html',
       scope:{
-          product: '='
+          product: '=',
+          saveComplete: '&'
       },
      controller:function($scope,ProdutoApi){
          $scope.salvandoFlag=false;
@@ -15,17 +16,18 @@ produtoModulo.directive('produtoform', function(){
              $scope.errors={};
              var promessa = ProdutoApi.salvar($scope.product);
              promessa.success(function(product){
-                 console.log(product);
                  $scope.product.nome='';
                  $scope.product.titulo='';
                  $scope.product.descricao='';
                  $scope.product.imagem='';
                  $scope.product.preco='';
                  $scope.salvandoFlag=false;
-             })
+                 if($scope.saveComplete != undefined){
+                     $scope.saveComplete({produto:product});
+                 }
+             });
              promessa.error(function(errors){
                  $scope.errors=errors;
-                 console.log(errors);
                  $scope.salvandoFlag=false;
 
              })

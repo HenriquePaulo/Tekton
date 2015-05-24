@@ -28,8 +28,11 @@
             });
             $scope.mostrarOuEsconderForm=function(){
                 $scope.mostrarFormFlag=!$scope.mostrarFormFlag;
-            }
+            };
 
+            $scope.adicionarProduto = function(produto){
+                $scope.produtoLista.unshift(produto)
+            }
         }
     </script>
 {% endblock %}
@@ -38,7 +41,7 @@
         <div class="row">
             <div class="col-md-12" ng-app="produtoApp" ng-controller="ProdutoController">
                  <h1 class="text-center">Tabela de Produtos</h1>
-                    <button class="btn btn-success" ng-click="mostrarOuEsconderForm()">Cadastrar Novo Produto</button>
+                    <button class="btn btn-success" ng-click="mostrarOuEsconderForm()" save-complete="adicionarProduto(produto)">Cadastrar Novo Produto</button>
                 <br>
                 <br>
                 <produtoform ng-show="mostrarFormFlag" product="produto"></produtoform>
@@ -48,13 +51,13 @@
                 <thead>
                     <tr>
                         <th/>
-                        <th>Id</th>
-                        <th>Creation</th>
-                        <th>Titulo</th>
-                        <th>Preco</th>
-                        <th>Descricao{% endtrans %}</th>
-                        <th>Imagem</th>
-                        <th>Nome</th>
+                        <th>{% trans %}Id{% endtrans %}</th>
+                        <th>{% trans %}Creation{% endtrans %}</th>
+                        <th>{% trans %}Titulo{% endtrans %}</th>
+                        <th>{% trans %}Preco{% endtrans %}</th>
+                        <th>{% trans %}Descricao{% endtrans %}</th>
+                        <th>{% trans %}Imagem{% endtrans %}</th>
+                        <th>{% trans %}Nome{% endtrans %}</th>
                     </tr>
                     </thead>
 
