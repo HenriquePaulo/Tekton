@@ -1,0 +1,27 @@
+{% extends 'editar_produtos/editar_produto_base.html' %}
+{% block body %}
+    {% set editar_produto=editar_produto or None %}
+    {% set errors=errors or None %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <br/>
+
+                <div class="well">
+                    <h1 class="text-center">{% trans %}Editar_produto Form{% endtrans %}</h1>
+
+                    <form action="{{ save_path }}" method="post" role="form">
+                        {{ csrf_input() }}
+                        {{ form_input(_('Titulo'),'titulo',editar_produto.titulo,errors.titulo) }}
+                        {{ form_input(_('Preco'),'preco',editar_produto.preco,errors.preco) }}
+                        {{ form_input(_('Descricao'),'descricao',editar_produto.descricao,errors.descricao) }}
+                        {{ form_input(_('Imagem'),'imagem',editar_produto.imagem,errors.imagem) }}
+                        {{ form_input(_('Nome'),'nome',editar_produto.nome,errors.nome) }}
+                        <button type="submit" class="btn btn-success">{% trans %}Save{% endtrans %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

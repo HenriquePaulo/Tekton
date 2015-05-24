@@ -18,7 +18,7 @@ class Produtos(Node):
 
 class ProdutosForm(ModelForm):
     _model_class = Produtos
-    _include = [Produtos.nome, Produtos.titulo, Produtos.descricao, Produtos.imagem,Produtos.preco]
+    _include = [Produtos.nome, Produtos.titulo, Produtos.descricao, Produtos.imagem, Produtos.preco]
 
 @login_not_required
 @no_csrf

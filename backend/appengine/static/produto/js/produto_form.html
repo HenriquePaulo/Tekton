@@ -1,0 +1,37 @@
+
+<div class="well">
+    <h1 class="text-center">Formulario de Produtos</h1>
+
+
+        <div class="form-group" class="control-label" ng-class="{true: '', false: 'has-error'}[errors.nome==null]">
+            <label for="nomeInput" >categoria</label>
+            <input id="priceInput" type="text" class="form-control" ng-model="product.nome">
+            <span class="help-block" ng-show="errors.nome">{{ errors.nome }}</span>
+        </div>
+         <div class="form-group" class="control-label" ng-class="{true: '', false: 'has-error'}[errors.titulo==null]">
+            <label for="tituloInput" class="control-label">titulo</label>
+            <input id="priceInput" type="text" class="form-control" ng-model="product.titulo">
+             <span class="help-block" ng-show="errors.titulo">{{ errors.titulo }}</span>
+        </div>
+        <div class="form-group" class="control-label" ng-class="{true: '', false: 'has-error'}[errors.descricao==null]">
+            <label for="descricaoInput" class="control-label">decricao</label>
+            <input id="priceInput" type="text" class="form-control" ng-model="product.descricao">
+            <span class="help-block" ng-show="errors.descricao">{{ errors.descricao }}</span>
+        </div>
+
+        <div class="form-group" class="control-label" ng-class="{true: '', false: 'has-error'}[errors.imagem==null]">
+            <label for="imagemInput" class="control-label">url da imagem</label>
+            <input id="titleInput" type="text" class="form-control" ng-model="product.imagem">
+            <span class="help-block" ng-show="errors.imagem">{{ errors.imagem }}</span>
+        </div>
+
+         <div class="form-group" class="control-label" ng-class="{true: '', false: 'has-error'}[errors.preco==null]">
+            <label for="precoInput" class="control-label">valor(usar prifixo R$)</label>
+            <input id="priceInput" type="text" class="form-control" ng-model="product.preco">
+             <span class="help-block" ng-show="errors.preco">{{ errors.preco }}</span>
+        </div>
+        <button type="submit" class="btn btn-success" ng-click="salvar()" ng-hide="salvandoFlag">Save</button>
+        <img src="/static/img/ajax.gif" ng-show="salvandoFlag">
+
+</div>
+
