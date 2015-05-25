@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 from gaebusiness.business import CommandExecutionException
+from gaecookie.decorator import no_csrf
 from tekton.gae.middleware.json_middleware import JsonResponse
 from editar_produto_app import editar_produto_facade
 
 
 
-
+@no_csrf
 def index():
     cmd = editar_produto_facade.list_editar_produtos_cmd()
     editar_produto_list = cmd()
