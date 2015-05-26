@@ -13,6 +13,9 @@
                },
                listar:function(){
                    return $http.post('{{ list_path }}');
+               },
+               deletar:function(id){
+                   return $http.post('{{ delete_path }}',{product_id:id});
                }
            };
         });
@@ -22,9 +25,11 @@
         function ProdutoController($scope,ProdutoApi){
             $scope.produto = {nome:'Computador',titulo:'Computador'};
             $scope.mostrarFormFlag=false;
+            $scope.listandoFlag=true;
             $scope.produtoLista = [];
             ProdutoApi.listar().success(function(produtos){
                 $scope.produtoLista = produtos;
+                $scope.listandoFlag=false;
             });
             $scope.mostrarOuEsconderForm=function(){
                 $scope.mostrarFormFlag=!$scope.mostrarFormFlag;
@@ -32,6 +37,15 @@
 
             $scope.adicionarProduto = function(produto){
                 $scope.produtoLista.unshift(produto)
+            };
+            $scope.removerProduto=function(produto){
+                var produtoLista = $scope.produtoLista;
+                for (var i=0; i<produtoLista.length; i+1){
+                    if(produto.id=produtoLista[i].id){
+                        produtoLista.splice(i,1);
+                        break;
+                    }
+                }
             }
         }
     </script>
@@ -41,10 +55,11 @@
         <div class="row">
             <div class="col-md-12" ng-app="produtoApp" ng-controller="ProdutoController">
                  <h1 class="text-center">Tabela de Produtos</h1>
-                    <button class="btn btn-success" ng-click="mostrarOuEsconderForm()" save-complete="adicionarProduto(produto)">Cadastrar Novo Produto</button>
+                    <button class="btn btn-success" ng-click="mostrarOuEsconderForm()">Cadastrar Novo Produto</button>
                 <br>
                 <br>
-                <produtoform ng-show="mostrarFormFlag" product="produto"></produtoform>
+                <produtoform ng-show="mostrarFormFlag" product="produto"
+                             save-complete="adicionarProduto(produto)"></produtoform>
                 <h7>categoria: </h7><input type="text" ng-model="produto.nome">
                 <hr/>
                 <table class="table table-striped table-hover">
@@ -53,18 +68,19 @@
                         <th/>
                         <th>{% trans %}Id{% endtrans %}</th>
                         <th>{% trans %}Creation{% endtrans %}</th>
+                        <th>{% trans %}Nome{% endtrans %}</th>
                         <th>{% trans %}Titulo{% endtrans %}</th>
-                        <th>{% trans %}Preco{% endtrans %}</th>
                         <th>{% trans %}Descricao{% endtrans %}</th>
                         <th>{% trans %}Imagem{% endtrans %}</th>
-                        <th>{% trans %}Nome{% endtrans %}</th>
+                        <th>{% trans %}Preco{% endtrans %}</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                        <tr produtolinha="" ng-repeat="p in produtoLista"></tr>
+                        <tr produtolinha ng-repeat="p in produtoLista" prduct="p" delete-complete="removerProduto(produto)"></tr>
                     </tbody>
                 </table>
+            <img src="/static/img/ajax.gif" ng-show="listandoFlag">
             </div>
         </div>
     </div>

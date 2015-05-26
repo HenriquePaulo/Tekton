@@ -21,18 +21,14 @@ def new(_resp, **editar_produto_properties):
     return _save_or_update_json_response(cmd, _resp)
 
 
-def edit(_resp, id, **editar_produto_properties):
-    cmd = editar_produto_facade.update_editar_produto_cmd(id, **editar_produto_properties)
+def edit(_resp, product_id, **editar_produto_properties):
+    cmd = editar_produto_facade.update_editar_produto_cmd(product_id, **editar_produto_properties)
     return _save_or_update_json_response(cmd, _resp)
 
 
-def delete(_resp, id):
-    cmd = editar_produto_facade.delete_editar_produto_cmd(id)
-    try:
-        cmd()
-    except CommandExecutionException:
-        _resp.status_code = 500
-        return JsonResponse(cmd.errors)
+def delete(product_id):
+    editar_produto_facade.delete_editar_produto_cmd(product_id)
+
 
 
 def _save_or_update_json_response(cmd, _resp):

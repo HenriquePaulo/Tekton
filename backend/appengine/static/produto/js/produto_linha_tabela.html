@@ -1,16 +1,19 @@
 <tr>
-    <td><button class="btn btn-success btn-sm"><i
+    <td><button class="btn btn-success btn-sm"ng-hide="ajaxFlag"><i
     class="glyphicon glyphicon-pencil"></i></button></td>
+    <img src="/static/img/ajax.gif" ng-show="ajaxFlag">
     <td>{{ editar_produto.id }}</td>
     <td>{{ editar_produto.creation }}</td>
+    <td>{{ editar_produto.nome }}</td>
     <td>{{ editar_produto.titulo }}</td>
-    <td>{{ editar_produto.preco }}</td>
     <td>{{ editar_produto.descricao }}</td>
     <td>{{ editar_produto.imagem }}</td>
-    <td>{{ editar_produto.nome }}</td>
+    <td>{{ editar_produto.preco }}</td>
     <td>
 
-            <button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
-
+            <button class="btn btn-danger btn-sm" ng-hide="ajaxFlag" ><i
+                    class="glyphicon glyphicon-trash"
+                    ng-click="deletar()"></i></button>
+            <img src="/static/img/ajax.gif" ng-show="ajaxFlag">
     </td>
 </tr>
