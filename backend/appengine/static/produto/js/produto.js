@@ -25,7 +25,7 @@ produtoModulo.directive('produtoform', function(){
                  if($scope.saveComplete != undefined){
                      $scope.saveComplete({'produto':product});
                  }
-             })
+             });
              promessa.error(function(errors){
                  $scope.errors=errors;
                  $scope.salvandoFlag=false;
@@ -43,18 +43,12 @@ produtoModulo.directive('produtolinha', function(){
 
       replace:true,
       templateUrl:'/static/produto/js/produto_linha_tabela.html',
-      scope:{
-          product: '=',
+      /*scope:{
+          product: '@',
           deleteComplete: '&'
-      },
+      },*/
      controller:function($scope, ProdutoApi){
-         $scope.ajaxFlag=false;
-         $scope.deletar=function(){
-             $scope.ajaxFlag=true;
-             ProdutoApi.deletar($scope.product.id).success(function(){
-                 $scope.deleteComplete({'produto':$scope.product });
-             });
-         }
+
 
      }
 

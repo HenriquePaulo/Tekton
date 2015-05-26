@@ -26,8 +26,16 @@ def edit(_resp, product_id, **editar_produto_properties):
     return _save_or_update_json_response(cmd, _resp)
 
 
-def delete(product_id):
-    editar_produto_facade.delete_editar_produto_cmd(product_id)
+# def delete(product_id):
+#     editar_produto_facade.delete_editar_produto_cmd(product_id)
+
+def delete(_resp, product_id):
+    cmd = editar_produto_facade.delete_editar_produto_cmd(product_id)
+    try:
+        cmd()
+    except CommandExecutionException:
+        _resp.status_code = 500
+        return JsonResponse(cmd.errors)
 
 
 

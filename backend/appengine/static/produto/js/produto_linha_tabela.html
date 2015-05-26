@@ -11,9 +11,8 @@
     <td>{{ editar_produto.preco }}</td>
     <td>
 
-            <button class="btn btn-danger btn-sm" ng-hide="ajaxFlag" ><i
-                    class="glyphicon glyphicon-trash"
-                    ng-click="deletar()"></i></button>
-            <img src="/static/img/ajax.gif" ng-show="ajaxFlag">
+            <button class="btn btn-danger btn-sm" ng-click="deletar(editar_produto.id, $index)">
+                <i class="glyphicon glyphicon-trash"></i>
+            </button>
     </td>
 </tr>

@@ -47,6 +47,12 @@
                     }
                 }
             }
+            $scope.deletar=function(id, index){
+                $scope.ajaxFlag=true;
+                ProdutoApi.deletar(id).success(function(){
+                    $scope.produtoLista.splice(index, 1);
+                });
+            }
         }
     </script>
 {% endblock %}
@@ -77,7 +83,7 @@
                     </thead>
 
                     <tbody>
-                        <tr produtolinha ng-repeat="p in produtoLista" prduct="p" delete-complete="removerProduto(produto)"></tr>
+                        <tr produtolinha ng-repeat="editar_produto in produtoLista" product="editar_produto" delete-complete="removerProduto(produto)"></tr>
                     </tbody>
                 </table>
             <img src="/static/img/ajax.gif" ng-show="listandoFlag">
