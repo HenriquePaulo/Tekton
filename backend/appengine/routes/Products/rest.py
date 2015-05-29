@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 from gaebusiness.business import CommandExecutionException
+from gaepermission.decorator import login_not_required
 from tekton.gae.middleware.json_middleware import JsonResponse
 from Product_app import Product_facade
 
@@ -18,6 +19,7 @@ def new(_resp, **product_properties):
     return _save_or_update_json_response(cmd, _resp)
 
 
+@login_not_required
 def edit(_resp, id, **product_properties):
     cmd = Product_facade.update_product_cmd(id, **product_properties)
     return _save_or_update_json_response(cmd, _resp)

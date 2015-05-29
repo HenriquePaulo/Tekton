@@ -2,7 +2,7 @@
 <div class="well">
     <h1 class="text-center">Formulario de Produtos</h1>
 
-
+    <input type="hidden" name="key_id" ng-model="product.id"/>
         <div class="form-group" class="control-label" ng-class="{true: '', false: 'has-error'}[errors.nome==null]">
             <label for="nomeInput" >categoria</label>
             <input id="priceInput" type="text" class="form-control" ng-model="product.nome">
@@ -30,7 +30,7 @@
             <input id="priceInput" type="text" class="form-control" ng-model="product.preco">
              <span class="help-block" ng-show="errors.preco">{{ errors.preco }}</span>
         </div>
-        <button type="submit" class="btn btn-success" ng-click="salvar()" ng-hide="salvandoFlag">Save</button>
+        <button type="submit" class="btn btn-success" ng-click="salvar(product.id)" ng-hide="salvandoFlag">Save</button>
         <img src="/static/img/ajax.gif" ng-show="salvandoFlag">
 
 </div>

@@ -2,6 +2,7 @@
 from __future__ import absolute_import, unicode_literals
 from gaebusiness.business import CommandExecutionException
 from gaecookie.decorator import no_csrf
+from gaepermission.decorator import login_not_required
 from tekton.gae.middleware.json_middleware import JsonResponse
 from editar_produto_app import editar_produto_facade
 
@@ -20,9 +21,10 @@ def new(_resp, **editar_produto_properties):
     cmd = editar_produto_facade.save_editar_produto_cmd(**editar_produto_properties)
     return _save_or_update_json_response(cmd, _resp)
 
-
-def edit(_resp, product_id, **editar_produto_properties):
-    cmd = editar_produto_facade.update_editar_produto_cmd(product_id, **editar_produto_properties)
+@no_csrf
+@login_not_required
+def edit(_resp, id, **editar_produto_properties):
+    cmd = editar_produto_facade.update_editar_produto_cmd(id, **editar_produto_properties)
     return _save_or_update_json_response(cmd, _resp)
 
 

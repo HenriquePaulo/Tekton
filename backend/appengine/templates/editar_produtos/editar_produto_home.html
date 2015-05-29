@@ -16,6 +16,9 @@
                },
                deletar:function(id){
                    return $http.post('{{ delete_path }}',{product_id:id});
+               },
+               editar:function(produto){
+                   return $http.post('{{ edit_path }}',produto);
                }
            };
         });
@@ -46,12 +49,15 @@
                         break;
                     }
                 }
-            }
+            };
             $scope.deletar=function(id, index){
                 $scope.ajaxFlag=true;
                 ProdutoApi.deletar(id).success(function(){
                     $scope.produtoLista.splice(index, 1);
                 });
+            };
+            $scope.editar=function(id, index){
+                $scope.produto = $scope.produtoLista[index];
             }
         }
     </script>

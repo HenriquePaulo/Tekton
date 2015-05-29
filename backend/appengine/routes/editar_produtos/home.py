@@ -15,6 +15,7 @@ from tekton.gae.middleware.redirect import RedirectResponse
 def index():
     context = {'list_path': router.to_path(rest.index),
                'delete_path': router.to_path(rest.delete),
+               'edit_path': router.to_path(rest.edit),
                'rest_new_path': router.to_path(rest.new)}
     return TemplateResponse(context, 'editar_produtos/editar_produto_home.html')
 

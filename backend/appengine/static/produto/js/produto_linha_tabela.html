@@ -1,5 +1,5 @@
 <tr>
-    <td><button class="btn btn-success btn-sm"ng-hide="ajaxFlag"><i
+    <td><button ng-click="editar(editar_produto.id, $index)" class="btn btn-success btn-sm"><i
     class="glyphicon glyphicon-pencil"></i></button></td>
     <img src="/static/img/ajax.gif" ng-show="ajaxFlag">
     <td>{{ editar_produto.id }}</td>

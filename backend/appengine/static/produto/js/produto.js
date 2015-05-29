@@ -14,18 +14,27 @@ produtoModulo.directive('produtoform', function(){
          $scope.salvar = function(){
              $scope.salvandoFlag=true;
              $scope.errors={};
-             var promessa = ProdutoApi.salvar($scope.product);
-             promessa.success(function(product){
-                 $scope.product.nome='';
-                 $scope.product.titulo='';
-                 $scope.product.descricao='';
-                 $scope.product.imagem='';
-                 $scope.product.preco='';
-                 $scope.salvandoFlag=false;
-                 if($scope.saveComplete != undefined){
-                     $scope.saveComplete({'produto':product});
-                 }
-             });
+             if($scope.product.id == null){
+                 var promessa = ProdutoApi.salvar($scope.product);
+                 promessa.success(function(product){
+                     $scope.product.nome='';
+                     $scope.product.titulo='';
+                     $scope.product.descricao='';
+                     $scope.product.imagem='';
+                     $scope.product.preco='';
+                     $scope.salvandoFlag=false;
+                     if($scope.saveComplete != undefined){
+                         $scope.saveComplete({'produto':product});
+                     }
+                 });
+             } else {
+                 var promessa = ProdutoApi.editar($scope.product);
+                 promessa.success(function(product){
+                     $scope.product = null;
+                     $scope.salvandoFlag=false;
+                 });
+             }
+
              promessa.error(function(errors){
                  $scope.errors=errors;
                  $scope.salvandoFlag=false;
