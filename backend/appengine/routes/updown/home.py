@@ -13,12 +13,12 @@ from tekton.gae.middleware.redirect import RedirectResponse
 
 @login_not_required
 @no_csrf
-def index(_logged_user):
+def index():
     success_url = router.to_path(upload)
     bucket = get_default_gcs_bucket_name()
     logging.info(bucket)
     url = blobstore.create_upload_url(success_url, gs_bucket_name=bucket)
-    cmd = blob_facade.list_blob_files_cmd(_logged_user)
+    cmd = blob_facade.list_blob_files_cmd()
     blob_form = blob_facade.blob_file_form()
     deletar_path_base = router.to_path(delete)
     download_path_base = router.to_path(download)
@@ -39,4 +39,4 @@ def index(_logged_user):
 def delete(blob_chave):
     cmd = blob_facade.delete_blob_file_cmd(blob_chave)
     cmd.execute()
-    return RedirectResponse(index)
+    return TemplateResponse(template_path= 'updown/home.html')
